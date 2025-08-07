@@ -1,15 +1,15 @@
 ---
-import { SITE_TITLE } from '../consts';
+import { SHORT_SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2><a href="/">{SHORT_SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href="/projects">Projects</HeaderLink>
 		</div>
 		<div class="social-links">
 			<a href="https://twitter.com/astrodotbuild" target="_blank">
