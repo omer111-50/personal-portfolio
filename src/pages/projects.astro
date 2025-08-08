@@ -1,18 +1,18 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Layout from '@/layouts/Layout.astro';
+import Footer from '@/components/Footer.tsx';
+import Header from '@/components/Header.tsx';
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/lib/consts.ts';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<Layout title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<!-- Header -->
-		<Header />
+		<Header pathname={Astro.url.pathname} />
 		<main class="min-h-screen">
 		<!-- Main content goes here -->
 		</main>
