@@ -5,18 +5,12 @@ import Header from '@/components/Header.tsx';
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/lib/consts.ts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-	<Layout title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<!-- Header -->
-		<Header pathname={Astro.url.pathname} />
-		<main>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<!-- Header -->
+	<Header client:only="react" pathname={Astro.url.pathname} />
+	<main>
 		<!-- Main content goes here -->
-		</main>
-		<!-- Footer -->
-		 <Footer />
-	</body>
-</html>
+	</main>
+	<!-- Footer -->
+	<Footer client:only="react" />
+</Layout>

@@ -11,76 +11,52 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<Layout title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
-
-	<body>
-		<Header pathname={Astro.url.pathname} />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt=""/>}
+<Layout title={title} description={description}>
+	<!-- Header -->
+	<Header client:only="react" pathname={Astro.url.pathname} />
+	
+	<main class="container max-w-5xl mx-auto px-6 md:px-4 py-8">
+		<article>
+			{/* Hero Image */}
+			{heroImage && (
+				<div class="mb-8 overflow-hidden rounded-lg">
+					<Image 
+						width={1020} 
+						height={510} 
+						src={heroImage} 
+						alt={title}
+						class="w-full h-auto"
+					/>
 				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
+			)}
+			
+			{/* Article Content */}
+			<div class="prose prose-lg max-w-none">
+				{/* Article Header */}
+				<header class="text-center mb-8 pb-6 border-b border-purple-500/20">
+					<div class="text-gray-600 mb-4">
+						<time class="text-sm">
 							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+						</time>
+						{updatedDate && (
+							<div class="text-sm italic mt-1">
+								Last updated on <FormattedDate date={updatedDate} />
+							</div>
+						)}
 					</div>
+					<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+						{title}
+					</h1>
+				</header>
+				
+				{/* Article Body */}
+				<div class="prose prose-lg prose-purple max-w-none">
 					<slot />
 				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+			</div>
+		</article>
+	</main>
+	
+	<!-- Footer -->
+	<Footer client:only="react" />
+</Layout>
