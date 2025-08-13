@@ -16,7 +16,7 @@ const posts = (await getCollection('blog')).sort(
 	<!-- Header -->
 	<Header client:only="react" pathname={Astro.url.pathname} />
 	
-	<main class="container max-w-5xl mx-auto px-6 md:px-4 py-8">
+	<main class="flex-1 container max-w-5xl mx-auto px-6 md:px-4 py-8">
 		<section>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 				{

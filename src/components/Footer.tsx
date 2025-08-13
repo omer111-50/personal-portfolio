@@ -23,11 +23,10 @@ export default function Footer() {
       icon: Twitter,
       url: "https://x.com/oaomer_",
     },
-    { name: "Email", icon: Mail, url: "mailto:omerali0446@gmail.com" },
   ];
 
   return (
-    <footer className="relative py-8 bg-gradient-to-br from-background via-purple-50/5 to-muted/30 backdrop-blur-sm overflow-hidden">
+    <footer className="relative py-5 bg-gradient-to-br from-background via-purple-50/5 to-muted/30 backdrop-blur-sm overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
