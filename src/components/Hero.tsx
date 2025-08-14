@@ -1,42 +1,21 @@
 import { SHORT_SITE_TITLE } from "@/lib/consts";
-import {
-  Mail,
-  Github,
-  MapPin,
-  Linkedin,
-  Twitter,
-  Briefcase,
-} from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useMemo, useRef, useState, useEffect } from "react";
+import { Github, MapPin, Linkedin, Twitter, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
+import { useMemo, useState, useEffect } from "react";
+import { JOB_TITLES, HERO_DESCRIPTION } from "@/lib/consts";
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const avatarY = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-
   const heroImageUrl = useMemo(
     () => new URL("../assets/hero-image.jpg", import.meta.url).href,
     []
   );
-
-  const jobTitles = [
-    "Platform Engineer",
-    "Digital & Technology Solutions Apprentice",
-    "Software Engineer in Training",
-  ];
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentTitle = jobTitles[currentTitleIndex];
+    const currentTitle = JOB_TITLES[currentTitleIndex];
 
     if (!isDeleting) {
       if (currentText.length < currentTitle.length) {
@@ -58,13 +37,13 @@ export default function Hero() {
         return () => clearTimeout(timeout);
       } else {
         setIsDeleting(false);
-        setCurrentTitleIndex((prev) => (prev + 1) % jobTitles.length);
+        setCurrentTitleIndex((prev) => (prev + 1) % JOB_TITLES.length);
       }
     }
-  }, [currentText, isDeleting, currentTitleIndex, jobTitles]);
+  }, [currentText, isDeleting, currentTitleIndex, JOB_TITLES]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden">
+    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       {/* Subtle animated background accents */}
       <motion.div
         className="absolute -top-10 -left-10 w-32 h-32 bg-[#32596c]/10 rounded-full blur-3xl"
@@ -82,11 +61,10 @@ export default function Hero() {
         }}
       />
 
-      {/* Parallax background gradient */}
-      <motion.div
+      {/* Static background gradient */}
+      <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(80%_60%_at_100%_0%,rgba(118,171,169,0.15),transparent),radial-gradient(70%_60%_at_0%_10%,rgba(50,89,108,0.18),transparent)]"
-        style={{ y: bgY }}
       />
 
       <div className="container max-w-5xl mx-auto px-6 md:px-4 py-12 md:py-16 relative z-10">
@@ -181,7 +159,6 @@ export default function Hero() {
           {/* Floating avatar (inline) */}
           <motion.div
             className="flex-shrink-0 self-center md:self-auto"
-            style={{ y: avatarY }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -212,29 +189,12 @@ export default function Hero() {
           transition={{ delay: 0.15, duration: 0.45 }}
           viewport={{ once: true }}
         >
-          <div className="absolute left-2 top-3 bottom-3 w-[3px] rounded-full bg-gradient-to-b from-[#76aba9] via-[#32596c] to-[#0b1422]" />
+          <div className="absolute left-2 top-3 bottom-3 w-[3px] rounded-full bg-gradient-to-b from-[#32596c] via-[#76aba9] to-[#0b1422]" />
           <p className="text-gray-700 leading-relaxed md:text-sm pl-4 text-justify">
-            As a Platform Engineer at IBM, I work at the intersection of client
-            collaboration and innovative cloud solutions delivering Minimum
-            Viable Products that are both efficient and impactful. I thrive on
-            solving complex problems, ensuring that the technical structures I
-            help design not only meet immediate needs but also set the stage for
-            future advancements. Alongside my professional role, I am pursuing a
-            degree in Digital and Technology Solutions with a focus on software
-            engineering at Manchester Metropolitan University. This journey
-            fuels my passion for AI, emerging technologies, and continuous
-            learning, allowing me to merge technical expertise with creativity
-            to drive innovation.
+            {HERO_DESCRIPTION}
           </p>
         </motion.div>
       </div>
-
-      {/* Parallax divider that hints next section */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 md:h-32 bg-gradient-to-b from-transparent via-[#32596c]/10 to-[#32596c]/20"
-        style={{ y: parallaxY }}
-      />
     </section>
   );
 }

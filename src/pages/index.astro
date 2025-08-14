@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import Footer from '@/components/Footer.tsx';
 import Header from '@/components/Header.tsx';
 import Hero from '@/components/Hero.tsx';
+import Resume from '@/components/Resume.tsx'
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/lib/consts.ts';
 ---
 
@@ -12,6 +13,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '@/lib/consts.ts';
 	<main class="flex-1">
 		<!-- Hero Section -->
 		<Hero client:only="react" />
+		<Resume client:only="react" />
 	</main>
 	<!-- Footer -->
 	<Footer client:only="react" />
