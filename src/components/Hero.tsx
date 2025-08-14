@@ -2,7 +2,7 @@ import { SHORT_SITE_TITLE } from "@/lib/consts";
 import { Github, MapPin, Linkedin, Twitter, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import { useMemo, useState, useEffect } from "react";
-import { JOB_TITLES, HERO_DESCRIPTION } from "@/lib/consts";
+import { JOB_TITLES, HERO_DESCRIPTION, SOCIAL_LINKS } from "@/lib/consts";
 
 export default function Hero() {
   const heroImageUrl = useMemo(
@@ -115,7 +115,9 @@ export default function Hero() {
               >
                 <Github className="w-4 h-4 text-[#32596c]" />
                 <a
-                  href="https://github.com/omer111-50"
+                  href={
+                    SOCIAL_LINKS.find((link) => link.name === "GitHub")?.url
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#32596c] transition-colors"
@@ -130,7 +132,9 @@ export default function Hero() {
               >
                 <Linkedin className="w-4 h-4 text-[#32596c]" />
                 <a
-                  href="https://www.linkedin.com/in/omer-ali-omer/"
+                  href={
+                    SOCIAL_LINKS.find((link) => link.name === "LinkedIn")?.url
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#32596c] transition-colors"
@@ -145,7 +149,9 @@ export default function Hero() {
               >
                 <Twitter className="w-4 h-4 text-[#32596c]" />
                 <a
-                  href="https://x.com/oaomer_"
+                  href={
+                    SOCIAL_LINKS.find((link) => link.name === "Twitter")?.url
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#32596c] transition-colors"
@@ -190,7 +196,7 @@ export default function Hero() {
           viewport={{ once: true }}
         >
           <div className="absolute left-2 top-3 bottom-3 w-[3px] rounded-full bg-gradient-to-b from-[#32596c] via-[#76aba9] to-[#0b1422]" />
-          <p className="text-gray-700 leading-relaxed md:text-sm pl-4 text-justify">
+          <p className="text-gray-700 leading-relaxed md:text-md pl-4 text-justify">
             {HERO_DESCRIPTION}
           </p>
         </motion.div>

@@ -1,4 +1,4 @@
-import { SHORT_SITE_TITLE } from "@/lib/consts";
+import { SHORT_SITE_TITLE, SOCIAL_LINKS } from "@/lib/consts";
 import { motion } from "framer-motion";
 import {
   Github,
@@ -11,19 +11,16 @@ import {
 } from "lucide-react";
 
 export default function Footer() {
-  const socialLinks = [
-    { name: "GitHub", icon: Github, url: "https://github.com/omer111-50" },
-    {
-      name: "LinkedIn",
-      icon: Linkedin,
-      url: "https://www.linkedin.com/in/omer-ali-omer/",
-    },
-    {
-      name: "Twitter",
-      icon: Twitter,
-      url: "https://x.com/oaomer_",
-    },
-  ];
+  const socialIconMap = {
+    GitHub: Github,
+    LinkedIn: Linkedin,
+    Twitter: Twitter,
+  };
+
+  const socialLinks = SOCIAL_LINKS.map((link) => ({
+    ...link,
+    icon: socialIconMap[link.name as keyof typeof socialIconMap],
+  }));
 
   return (
     <footer className="relative py-5 bg-gradient-to-br from-background via-[#76aba9]/5 to-muted/30 backdrop-blur-sm overflow-hidden">

@@ -54,6 +54,7 @@ export default function Resume() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Education</h3>
             <div className="relative">
               <div className="absolute left-6 top-2 bottom-0 w-0.5 bg-gradient-to-b from-[#32596c] to-[#76aba9]" />
               {EDUCATION_DATA.map((education, index) => (
@@ -117,6 +118,9 @@ export default function Resume() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Work Experience
+            </h3>
             <div className="relative">
               <div className="absolute left-6 top-2 bottom-0 w-0.5 bg-gradient-to-b from-[#32596c] to-[#76aba9]" />
               {EXPERIENCE_DATA.map((experience, index) => (

@@ -7,15 +7,20 @@ import {
 } from "lucide-react";
 
 export const SITE_TITLE = "Omer OA | Technology Degree Apprentice";
+
 export const SHORT_SITE_TITLE = "Omer OA";
+
 export const SITE_DESCRIPTION =
   "Welcome to my website! I'm a Platform Engineer apprentice at IBM and here, you'll find my projects, blog posts, and more about my journey in tech :)";
+
 export const FOOTER_DESCRIPTION = "Thank you for visiting my website!";
+
 export const JOB_TITLES = [
   "Platform Engineer",
   "Digital & Technology Solutions Apprentice",
   "Software Engineer in Training",
 ];
+
 export const HERO_DESCRIPTION =
   "As a Platform Engineer at IBM, I work at the intersection of client collaboration and innovative cloud solutions delivering Minimum Viable Products that are both efficient and impactful. I thrive on solving complex problems, ensuring that the technical structures I help design not only meet immediate needs but also set the stage for future advancements. Alongside my professional role, I am pursuing a degree in Digital and Technology Solutions with a focus on software engineering at Manchester Metropolitan University. This journey fuels my passion for AI, emerging technologies, and continuous learning, allowing me to merge technical expertise with creativity to drive innovation";
 
@@ -89,5 +94,20 @@ export const EXPERIENCE_DATA = [
     ],
     skills: ["Communication", "Event Organisation", "Public Speaking"],
     icon: HelpingHand,
+  },
+];
+
+export const SOCIAL_LINKS = [
+  {
+    name: "GitHub",
+    url: "https://github.com/omer111-50",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/omer-ali-omer/",
+  },
+  {
+    name: "Twitter",
+    url: "https://x.com/oaomer_",
   },
 ];
