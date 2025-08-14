@@ -45,7 +45,7 @@ export const EDUCATION_DATA = [
       "Computer Science (A*), Mathematics (A*) & Electronics (A)",
       "Gold Duke of Edinburgh Award",
     ],
-    icon: Backpack,
+    icon: School,
   },
   {
     degree: "GCSEs",
@@ -53,9 +53,9 @@ export const EDUCATION_DATA = [
     period: "2015 - 2020",
     location: "Oldham, UK",
     description:
-      "Studying Computer Science, Mathematics, and Electronics, where I developed a strong foundation in programming, algorithms, and electronic systems.",
+      "Achieved GCSEs in 9 subjects, including Maths and English, laying the groundwork for my academic / professional journey.",
     achievements: ["GCSEs in 9 Subjects at 9-6 Including Maths & English"],
-    icon: School,
+    icon: Backpack,
   },
 ];
 
