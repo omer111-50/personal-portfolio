@@ -79,7 +79,7 @@ export const EXPERIENCE_DATA = [
     role: "Student Ambassador",
     company: "Oldham Sixth Form College",
     period: "2021 - 2022",
-    location: "Manchester, UK",
+    location: "Oldham, UK",
     description:
       "Representing the college at various events, providing insights into student life and academic programs, and assisting prospective students in their transition to college.",
     responsibilities: [
@@ -87,7 +87,7 @@ export const EXPERIENCE_DATA = [
       "Assist with the organisation and running of events",
       "Provide insights into student life and academic programs",
     ],
-    skills: ["Cloud Computing", "Client Co-Creation", "Agile Methodologies"],
+    skills: ["Communication", "Event Organisation", "Public Speaking"],
     icon: HelpingHand,
   },
 ];
