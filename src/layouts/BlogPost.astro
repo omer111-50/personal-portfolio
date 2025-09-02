@@ -33,7 +33,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			{/* Article Content */}
 			<div class="prose prose-lg max-w-none">
 				{/* Article Header */}
-                <header class="text-center mb-8 pb-6 border-b border-[#32596c]/20">
+                <header class="text-center mb-8 pb-6 border-b border-primary/20">
 					<div class="text-gray-600 mb-4">
 						<time class="text-sm">
 							<FormattedDate date={pubDate} />
@@ -50,7 +50,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				</header>
 				
 				{/* Article Body */}
-                <div class="prose prose-lg max-w-none prose-a:text-[#32596c] prose-strong:text-[#0b1422] prose-h1:text-[#0b1422] prose-h2:text-[#0b1422] prose-h3:text-[#0b1422]">
+                <div class="prose prose-lg max-w-none prose-a:text-primary prose-strong:text-tertiary prose-h1:text-tertiary prose-h2:text-tertiary prose-h3:text-tertiary">
 					<slot />
 				</div>
 			</div>

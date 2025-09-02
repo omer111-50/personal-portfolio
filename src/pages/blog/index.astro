@@ -35,7 +35,7 @@ const posts = (await getCollection('blog')).sort(
 									</div>
 								)}
 								<div class={`${index === 0 ? 'text-center' : ''}`}>
-                                    <h2 class={`font-bold text-gray-900 transition-colors duration-300 group-hover:text-[#32596c] ${
+                                    <h2 class={`font-bold text-gray-900 transition-colors duration-300 group-hover:text-primary ${
 										index === 0 ? 'text-3xl md:text-4xl mb-2' : 'text-xl mb-2'
 									}`}>
 										{post.data.title}

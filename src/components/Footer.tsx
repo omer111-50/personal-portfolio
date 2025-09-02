@@ -23,16 +23,16 @@ export default function Footer() {
   }));
 
   return (
-    <footer className="relative py-5 bg-gradient-to-br from-background via-[#76aba9]/5 to-muted/30 backdrop-blur-sm overflow-hidden">
+    <footer className="relative py-5 bg-gradient-to-br from-background via-secondary/5 to-muted/30 backdrop-blur-sm overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-10 -left-10 w-20 h-20 bg-[#32596c]/10 rounded-full blur-xl"
+          className="absolute -top-10 -left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"
           animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -bottom-10 -right-10 w-16 h-16 bg-[#76aba9]/10 rounded-full blur-xl"
+          className="absolute -bottom-10 -right-10 w-16 h-16 bg-secondary/10 rounded-full blur-xl"
           animate={{ x: [0, -80, 0], y: [0, 60, 0] }}
           transition={{
             duration: 10,
@@ -44,7 +44,7 @@ export default function Footer() {
       </div>
 
       {/* Full-width horizontal line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#32596c]/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
       <div className="container max-w-5xl mx-auto px-6 md:px-4 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -75,7 +75,7 @@ export default function Footer() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 flex items-center justify-center hover:text-[#76aba9] transition-colors duration-300"
+                className="w-8 h-8 flex items-center justify-center hover:text-secondary transition-colors duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.3 }}

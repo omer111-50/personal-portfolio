@@ -35,8 +35,8 @@ function HeaderLink({
       onClick={onClick}
       className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 ${
         isActive
-          ? "bg-[#76aba9]/20 text-[#32596c] border border-[#76aba9]/30"
-          : "text-gray-600 hover:bg-[#76aba9]/10 hover:text-[#32596c] hover:border hover:border-[#76aba9]/20"
+          ? "bg-secondary/20 text-primary border border-secondary/30"
+          : "text-muted-foreground hover:bg-secondary/10 hover:text-primary hover:border-secondary/20"
       }`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -61,7 +61,7 @@ export default function Header({ pathname = "/" }: Props) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-[#32596c]/10 shadow-sm">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-primary/10 shadow-sm">
       <div className="container max-w-5xl mx-auto px-6 md:px-4">
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
@@ -73,11 +73,11 @@ export default function Header({ pathname = "/" }: Props) {
           >
             <motion.a
               href="/"
-              className="flex items-center gap-2 bg-gradient-to-r from-[#32596c] to-[#76aba9] bg-clip-text text-transparent"
+              className="flex items-center gap-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <SquareTerminal className="w-6 h-6 text-[#32596c]" />
+              <SquareTerminal className="w-6 h-6 text-primary" />
               {SHORT_SITE_TITLE}
             </motion.a>
           </motion.h2>
@@ -109,7 +109,7 @@ export default function Header({ pathname = "/" }: Props) {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 rounded-lg hover:bg-[#76aba9]/10 transition-colors duration-300"
+            className="md:hidden p-2 rounded-lg hover:bg-secondary/10 transition-colors duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -126,7 +126,7 @@ export default function Header({ pathname = "/" }: Props) {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="w-6 h-6 text-gray-600" />
+                  <X className="w-6 h-6 text-muted-foreground" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -136,7 +136,7 @@ export default function Header({ pathname = "/" }: Props) {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="w-6 h-6 text-gray-600" />
+                  <Menu className="w-6 h-6 text-muted-foreground" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -153,7 +153,7 @@ export default function Header({ pathname = "/" }: Props) {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="py-4 space-y-2 border-t border-[#32596c]/10">
+              <div className="py-4 space-y-2 border-t border-primary/10">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.href}

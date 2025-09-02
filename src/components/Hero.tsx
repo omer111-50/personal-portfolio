@@ -46,12 +46,12 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       {/* Subtle animated background accents */}
       <motion.div
-        className="absolute -top-10 -left-10 w-32 h-32 bg-[#32596c]/10 rounded-full blur-3xl"
+        className="absolute -top-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"
         animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute -bottom-10 -right-10 w-24 h-24 bg-[#76aba9]/10 rounded-full blur-3xl"
+        className="absolute -bottom-10 -right-10 w-24 h-24 bg-secondary/10 rounded-full blur-3xl"
         animate={{ x: [0, -30, 0], y: [0, 25, 0] }}
         transition={{
           duration: 12,
@@ -64,7 +64,7 @@ export default function Hero() {
       {/* Static background gradient */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(80%_60%_at_100%_0%,rgba(118,171,169,0.15),transparent),radial-gradient(70%_60%_at_0%_10%,rgba(50,89,108,0.18),transparent)]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(80%_60%_at_100%_0%,theme(colors.secondary/15%),transparent),radial-gradient(70%_60%_at_0%_10%,theme(colors.primary/18%),transparent)]"
       />
 
       <div className="container max-w-5xl mx-auto px-6 md:px-4 py-12 md:py-16 relative z-10">
@@ -79,9 +79,8 @@ export default function Hero() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              Hi, I'm
-              <span className="ml-2 bg-gradient-to-r from-[#32596c] to-[#76aba9] bg-clip-text text-transparent">
-                Omer
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Omer OA
               </span>
             </motion.h1>
 
@@ -94,18 +93,18 @@ export default function Hero() {
               viewport={{ once: true }}
             >
               <li className="flex items-center gap-3 text-gray-700">
-                <Briefcase className="w-4 h-4 text-[#32596c]" />
+                <Briefcase className="w-4 h-4 text-primary" />
                 <span>
                   {currentText}
                   <motion.span
-                    className="inline-block w-0.5 h-5 bg-[#32596c] ml-1"
+                    className="inline-block w-0.5 h-5 bg-primary ml-1"
                     animate={{ opacity: [1, 0, 1] }}
                     transition={{ duration: 0.8, repeat: Infinity }}
                   />
                 </span>
               </li>
               <li className="flex items-center gap-3 text-gray-700">
-                <MapPin className="w-4 h-4 text-[#32596c]" />
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>Manchester, United Kingdom</span>
               </li>
               <motion.li
@@ -113,14 +112,14 @@ export default function Hero() {
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                <Github className="w-4 h-4 text-[#32596c]" />
+                <Github className="w-4 h-4 text-primary" />
                 <a
                   href={
                     SOCIAL_LINKS.find((link) => link.name === "GitHub")?.url
                   }
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#32596c] transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   GitHub
                 </a>
@@ -130,14 +129,14 @@ export default function Hero() {
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                <Linkedin className="w-4 h-4 text-[#32596c]" />
+                <Linkedin className="w-4 h-4 text-primary" />
                 <a
                   href={
                     SOCIAL_LINKS.find((link) => link.name === "LinkedIn")?.url
                   }
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#32596c] transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   LinkedIn
                 </a>
@@ -147,14 +146,14 @@ export default function Hero() {
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                <Twitter className="w-4 h-4 text-[#32596c]" />
+                <Twitter className="w-4 h-4 text-primary" />
                 <a
                   href={
                     SOCIAL_LINKS.find((link) => link.name === "Twitter")?.url
                   }
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#32596c] transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Twitter
                 </a>
@@ -173,8 +172,8 @@ export default function Hero() {
             whileTap={{ scale: 0.95 }}
           >
             <div className="relative w-48 h-48 md:w-68 md:h-68">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#32596c] via-[#76aba9] to-[#0b1422] blur-lg opacity-70" />
-              <div className="absolute inset-[8px] rounded-full bg-white/80 border border-[#32596c]/20 backdrop-blur-sm overflow-hidden">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary blur-lg opacity-70" />
+              <div className="absolute inset-[8px] rounded-full bg-white/80 border border-primary/20 backdrop-blur-sm overflow-hidden">
                 <img
                   src={heroImageUrl}
                   alt={`${SHORT_SITE_TITLE} portrait`}
@@ -189,13 +188,13 @@ export default function Hero() {
 
         {/* Gradient callout - full width */}
         <motion.div
-          className="relative rounded-xl border border-[#32596c]/20 bg-white/60 backdrop-blur-sm p-5 md:p-6"
+          className="relative rounded-xl border border-primary/20 bg-white/60 backdrop-blur-sm p-5 md:p-6"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.45 }}
           viewport={{ once: true }}
         >
-          <div className="absolute left-2 top-3 bottom-3 w-[3px] rounded-full bg-gradient-to-b from-[#32596c] via-[#76aba9] to-[#0b1422]" />
+          <div className="absolute left-2 top-3 bottom-3 w-[3px] rounded-full bg-gradient-to-b from-primary via-secondary to-tertiary" />
           <p className="text-gray-700 leading-relaxed md:text-md pl-4 text-justify">
             {HERO_DESCRIPTION}
           </p>

@@ -7,12 +7,12 @@ export default function Resume() {
     <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       {/* Subtle animated background accents */}
       <motion.div
-        className="absolute -top-10 -left-10 w-32 h-32 bg-[#32596c]/10 rounded-full blur-3xl"
+        className="absolute -top-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"
         animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute -bottom-10 -right-10 w-24 h-24 bg-[#76aba9]/10 rounded-full blur-3xl"
+        className="absolute -bottom-10 -right-10 w-24 h-24 bg-secondary/10 rounded-full blur-3xl"
         animate={{ x: [0, -30, 0], y: [0, 25, 0] }}
         transition={{
           duration: 12,
@@ -24,7 +24,7 @@ export default function Resume() {
       {/* Static background elements */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(80%_60%_at_100%_0%,rgba(118,171,169,0.15),transparent),radial-gradient(70%_60%_at_0%_10%,rgba(50,89,108,0.18),transparent)]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(80%_60%_at_100%_0%,theme(colors.secondary/15%),transparent),radial-gradient(70%_60%_at_0%_10%,theme(colors.primary/18%),transparent)]"
       />
 
       <div className="container max-w-7xl mx-auto px-6 md:px-4 py-16 md:py-24 relative z-10">
@@ -56,7 +56,7 @@ export default function Resume() {
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Education</h3>
             <div className="relative">
-              <div className="absolute left-6 top-2 bottom-0 w-0.5 bg-gradient-to-b from-[#32596c] to-[#76aba9]" />
+              <div className="absolute left-6 top-2 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary" />
               {EDUCATION_DATA.map((education, index) => (
                 <motion.div
                   key={index}
@@ -66,15 +66,15 @@ export default function Resume() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <div className="relative pl-12 pb-8">
-                    <div className="absolute left-0 top-2 w-12 h-12 bg-white border-4 border-[#32596c] rounded-full flex items-center justify-center">
-                      <education.icon className="w-5 h-5 text-[#32596c]" />
+                    <div className="absolute left-0 top-2 w-12 h-12 bg-white border-4 border-primary rounded-full flex items-center justify-center">
+                      <education.icon className="w-5 h-5 text-primary" />
                     </div>
 
                     <div className="bg-white rounded-xl border border-gray-200 ml-4 p-6 shadow-sm hover:shadow-md transition-shadow">
                       <h4 className="text-xl font-semibold text-gray-900 mb-2">
                         {education.degree}
                       </h4>
-                      <p className="text-[#32596c] font-medium mb-3">
+                      <p className="text-primary font-medium mb-3">
                         {education.institution}
                       </p>
 
@@ -96,7 +96,7 @@ export default function Resume() {
                       <div className="space-y-2">
                         {education.achievements.map((achievement, idx) => (
                           <div key={idx} className="flex items-start gap-2">
-                            <Award className="w-4 h-4 text-[#32596c] mt-0.5 flex-shrink-0" />
+                            <Award className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                             <span className="text-sm text-gray-600">
                               {achievement}
                             </span>
@@ -122,7 +122,7 @@ export default function Resume() {
               Work Experience
             </h3>
             <div className="relative">
-              <div className="absolute left-6 top-2 bottom-0 w-0.5 bg-gradient-to-b from-[#32596c] to-[#76aba9]" />
+              <div className="absolute left-6 top-2 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary" />
               {EXPERIENCE_DATA.map((experience, index) => (
                 <motion.div
                   key={index}
@@ -132,15 +132,15 @@ export default function Resume() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <div className="relative pl-12 pb-8">
-                    <div className="absolute left-0 top-2 w-12 h-12 bg-white border-4 border-[#32596c] rounded-full flex items-center justify-center">
-                      <experience.icon className="w-5 h-5 text-[#32596c]" />
+                    <div className="absolute left-0 top-2 w-12 h-12 bg-white border-4 border-primary rounded-full flex items-center justify-center">
+                      <experience.icon className="w-5 h-5 text-primary" />
                     </div>
 
                     <div className="bg-white rounded-xl border border-gray-200 ml-4 p-6 shadow-sm hover:shadow-md transition-shadow">
                       <h4 className="text-xl font-semibold text-gray-900 mb-2">
                         {experience.role}
                       </h4>
-                      <p className="text-[#32596c] font-medium mb-3">
+                      <p className="text-primary font-medium mb-3">
                         {experience.company}
                       </p>
 
@@ -167,7 +167,7 @@ export default function Resume() {
                           {experience.responsibilities.map(
                             (responsibility, idx) => (
                               <li key={idx} className="flex items-start gap-2">
-                                <div className="w-1.5 h-1.5 bg-[#32596c] rounded-full mt-2 flex-shrink-0" />
+                                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
                                 <span className="text-sm text-gray-600">
                                   {responsibility}
                                 </span>
@@ -181,7 +181,7 @@ export default function Resume() {
                         {experience.skills.map((skill, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 bg-[#32596c]/10 text-[#32596c] text-xs font-medium rounded-full"
+                            className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
                           >
                             {skill}
                           </span>
