@@ -42,7 +42,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Sora:wght@600;700;800&display=swap"
 			rel="stylesheet"
 		/>
 
@@ -68,7 +68,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
 	</head>
-	<body class="min-h-screen flex flex-col">
+	<body class="min-h-screen flex flex-col bg-background text-foreground">
 		<slot />
 	</body>
 </html>

@@ -1,31 +1,12 @@
 import { Calendar, MapPin, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { EXPERIENCE_DATA, EDUCATION_DATA } from "@/lib/consts";
+import BrandBackdrop from "@/components/BrandBackdrop";
 
 export default function Resume() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
-      {/* Subtle animated background accents */}
-      <motion.div
-        className="absolute -top-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"
-        animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute -bottom-10 -right-10 w-24 h-24 bg-secondary/10 rounded-full blur-3xl"
-        animate={{ x: [0, -30, 0], y: [0, 25, 0] }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1.2,
-        }}
-      />
-      {/* Static background elements */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(80%_60%_at_100%_0%,theme(colors.secondary/15%),transparent),radial-gradient(70%_60%_at_0%_10%,theme(colors.primary/18%),transparent)]"
-      />
+    <section className="relative overflow-hidden bg-background">
+      <BrandBackdrop intensity={0.9} />
 
       <div className="container max-w-7xl mx-auto px-6 md:px-4 py-16 md:py-24 relative z-10">
         {/* Section Header */}
@@ -36,7 +17,7 @@ export default function Resume() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-heading brand-gradient-text">
             Resume
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -54,7 +35,9 @@ export default function Resume() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Education</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 font-heading">
+              Education
+            </h3>
             <div className="relative">
               <div className="absolute left-6 top-2 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary" />
               {EDUCATION_DATA.map((education, index) => (
@@ -70,7 +53,7 @@ export default function Resume() {
                       <education.icon className="w-5 h-5 text-primary" />
                     </div>
 
-                    <div className="bg-white rounded-xl border border-gray-200 ml-4 p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="bg-white rounded-xl border border-gray-200 ml-4 p-6 shadow-sm hover:shadow-md transition-shadow glass-panel hover-raise">
                       <h4 className="text-xl font-semibold text-gray-900 mb-2">
                         {education.degree}
                       </h4>
@@ -118,7 +101,7 @@ export default function Resume() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 font-heading">
               Work Experience
             </h3>
             <div className="relative">
@@ -136,7 +119,7 @@ export default function Resume() {
                       <experience.icon className="w-5 h-5 text-primary" />
                     </div>
 
-                    <div className="bg-white rounded-xl border border-gray-200 ml-4 p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="bg-white rounded-xl border border-gray-200 ml-4 p-6 shadow-sm hover:shadow-md transition-shadow glass-panel hover-raise">
                       <h4 className="text-xl font-semibold text-gray-900 mb-2">
                         {experience.role}
                       </h4>

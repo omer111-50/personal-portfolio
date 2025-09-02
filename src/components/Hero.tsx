@@ -3,6 +3,7 @@ import { Github, MapPin, Linkedin, Twitter, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import { useMemo, useState, useEffect } from "react";
 import { JOB_TITLES, HERO_DESCRIPTION, SOCIAL_LINKS } from "@/lib/consts";
+import BrandBackdrop from "@/components/BrandBackdrop";
 
 export default function Hero() {
   const heroImageUrl = useMemo(
@@ -43,29 +44,8 @@ export default function Hero() {
   }, [currentText, isDeleting, currentTitleIndex, JOB_TITLES]);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
-      {/* Subtle animated background accents */}
-      <motion.div
-        className="absolute -top-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"
-        animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute -bottom-10 -right-10 w-24 h-24 bg-secondary/10 rounded-full blur-3xl"
-        animate={{ x: [0, -30, 0], y: [0, 25, 0] }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1.2,
-        }}
-      />
-
-      {/* Static background gradient */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(80%_60%_at_100%_0%,theme(colors.secondary/15%),transparent),radial-gradient(70%_60%_at_0%_10%,theme(colors.primary/18%),transparent)]"
-      />
+    <section className="relative overflow-hidden bg-background">
+      <BrandBackdrop intensity={1} />
 
       <div className="container max-w-5xl mx-auto px-6 md:px-4 py-12 md:py-16 relative z-10">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 md:gap-12 mb-8">
@@ -73,15 +53,13 @@ export default function Hero() {
           <div className="flex-1 w-full max-w-2xl text-center md:text-left mx-auto md:mx-0">
             {/* Name + subtitle */}
             <motion.h1
-              className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6"
+              className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 font-heading"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Omer OA
-              </span>
+              <span className="brand-gradient-text">Omer OA</span>
             </motion.h1>
 
             {/* Meta list */}
@@ -103,10 +81,16 @@ export default function Hero() {
                   />
                 </span>
               </li>
-              <li className="flex items-center gap-3 text-gray-700">
+              <motion.li
+                className="flex items-center gap-3 text-gray-700 "
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>Manchester, United Kingdom</span>
-              </li>
+                <span className="hover:text-primary transition-colors">
+                  Manchester, United Kingdom
+                </span>
+              </motion.li>
               <motion.li
                 className="flex items-center gap-3 text-gray-700"
                 whileHover={{ x: 5 }}
@@ -173,7 +157,7 @@ export default function Hero() {
           >
             <div className="relative w-48 h-48 md:w-68 md:h-68">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary blur-lg opacity-70" />
-              <div className="absolute inset-[8px] rounded-full bg-white/80 border border-primary/20 backdrop-blur-sm overflow-hidden">
+              <div className="absolute inset-[8px] rounded-full bg-white/80 border border-primary/20 backdrop-blur-sm overflow-hidden ring-glow">
                 <img
                   src={heroImageUrl}
                   alt={`${SHORT_SITE_TITLE} portrait`}
@@ -188,7 +172,7 @@ export default function Hero() {
 
         {/* Gradient callout - full width */}
         <motion.div
-          className="relative rounded-xl border border-primary/20 bg-white/60 backdrop-blur-sm p-5 md:p-6"
+          className="relative rounded-xl p-5 md:p-6 glass-panel hover-raise"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.45 }}
